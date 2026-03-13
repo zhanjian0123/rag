@@ -59,6 +59,14 @@ a {
   text-decoration: none;
 }
 
+/* 限制 SVG 图标尺寸 - 强制设置 */
+svg:not([class*="w-"]):not([class*="h-"]) {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /* ==================== 滚动条 ==================== */
 ::-webkit-scrollbar {
   width: 8px;
