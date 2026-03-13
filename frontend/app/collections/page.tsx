@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import DashboardLayout from "@/components/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/Card";
 
 interface Collection {
@@ -49,6 +50,7 @@ export default function CollectionListPage() {
 
   if (loading) {
     return (
+      <DashboardLayout>
       <div className="max-w-4xl space-y-3">
         {[1, 2].map((i) => (
           <Card key={i} className="animate-pulse">
@@ -59,10 +61,12 @@ export default function CollectionListPage() {
           </Card>
         ))}
       </div>
+      </DashboardLayout>
     );
   }
 
   return (
+    <DashboardLayout>
     <div className="max-w-4xl space-y-4">
       {/* Header */}
       <div>
@@ -152,5 +156,6 @@ export default function CollectionListPage() {
         </Card>
       )}
     </div>
+    </DashboardLayout>
   );
 }

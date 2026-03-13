@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import DashboardLayout from "@/components/DashboardLayout";
 import { Card, CardContent } from "@/components/Card";
 
 interface Source {
@@ -67,6 +68,7 @@ export default function ChatPage() {
   };
 
   return (
+    <DashboardLayout>
     <div className="max-w-3xl mx-auto h-[calc(100vh-140px)] flex flex-col">
       {/* Header */}
       <div className="mb-4 flex-shrink-0">
@@ -156,18 +158,12 @@ export default function ChatPage() {
               disabled={loading || !question.trim()}
               className="btn btn-primary px-4"
             >
-              {loading ? (
-                <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                </svg>
-              ) : (
-                <span>发送</span>
-              )}
+              {loading ? "发送中..." : "发送"}
             </button>
           </form>
         </div>
       </Card>
     </div>
+    </DashboardLayout>
   );
 }

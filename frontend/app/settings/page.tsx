@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import DashboardLayout from "@/components/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/Card";
 
 export default function SettingsPage() {
@@ -39,6 +40,7 @@ export default function SettingsPage() {
   };
 
   return (
+    <DashboardLayout>
     <div className="w-full max-w-2xl mx-auto space-y-6">
       {/* Header */}
       <div>
@@ -90,7 +92,7 @@ export default function SettingsPage() {
                 }`}
               >
                 <div className="text-2xl mb-1">☁️</div>
-                <div className="font-medium">DashScope</div>
+                <div className="font-medium">阿里云 DashScope</div>
                 <div className="text-xs text-gray-500">通义千问系列</div>
               </button>
             </div>
@@ -106,7 +108,7 @@ export default function SettingsPage() {
                 <span className="text-lg">🔑</span>
               </div>
               <div>
-                <CardTitle>OpenAI 设置</CardTitle>
+                <CardTitle>OpenAI</CardTitle>
                 <p className="text-sm text-gray-500 mt-0.5">配置 OpenAI API</p>
               </div>
             </div>
@@ -114,7 +116,7 @@ export default function SettingsPage() {
           <CardContent className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                API Key
+                API 密钥
               </label>
               <input
                 type="password"
@@ -154,7 +156,7 @@ export default function SettingsPage() {
                 <span className="text-lg">🔑</span>
               </div>
               <div>
-                <CardTitle>DashScope 设置</CardTitle>
+                <CardTitle>阿里云 DashScope</CardTitle>
                 <p className="text-sm text-gray-500 mt-0.5">配置阿里云通义千问 API</p>
               </div>
             </div>
@@ -162,7 +164,7 @@ export default function SettingsPage() {
           <CardContent className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                API Key
+                API 密钥
               </label>
               <input
                 type="password"
@@ -197,28 +199,17 @@ export default function SettingsPage() {
       <button
         onClick={handleSave}
         disabled={saving}
-        className="btn btn-primary w-full flex items-center justify-center space-x-2 py-3"
+        className="btn btn-primary w-full py-3"
       >
         {saving ? (
-          <>
-            <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-            </svg>
-            <span>保存中...</span>
-          </>
+          <span>保存中...</span>
         ) : saved ? (
-          <>
-            <span>✅</span>
-            <span>已保存</span>
-          </>
+          <span>✅ 已保存</span>
         ) : (
-          <>
-            <span>💾</span>
-            <span>保存设置</span>
-          </>
+          <span>💾 保存设置</span>
         )}
       </button>
     </div>
+    </DashboardLayout>
   );
 }

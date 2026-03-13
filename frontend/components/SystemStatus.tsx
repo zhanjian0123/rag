@@ -29,7 +29,7 @@ export default function SystemStatus() {
     <div className="bg-white border border-slate-200 rounded-2xl p-6">
       <div className="flex items-center gap-2 mb-4">
         <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-        <span className="text-sm font-medium text-slate-700">System Status: Running</span>
+        <span className="text-sm font-medium text-slate-700">系统状态：运行中</span>
       </div>
       {loading ? (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -44,19 +44,19 @@ export default function SystemStatus() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center">
             <p className="text-lg font-semibold text-slate-800">{stats?.total_urls || 0}</p>
-            <p className="text-xs text-slate-500 mt-0.5">URLs</p>
+            <p className="text-xs text-slate-500 mt-0.5">URL</p>
           </div>
           <div className="text-center">
             <p className="text-lg font-semibold text-slate-800">{stats?.processed_urls || 0}</p>
-            <p className="text-xs text-slate-500 mt-0.5">Processed</p>
+            <p className="text-xs text-slate-500 mt-0.5">已处理</p>
           </div>
           <div className="text-center">
             <p className="text-lg font-semibold text-slate-800">{stats?.vector_documents || 0}</p>
-            <p className="text-xs text-slate-500 mt-0.5">Vectors</p>
+            <p className="text-xs text-slate-500 mt-0.5">向量</p>
           </div>
           <div className="text-center">
             <p className="text-lg font-semibold text-slate-800">{stats?.bm25_documents || 0}</p>
-            <p className="text-xs text-slate-500 mt-0.5">Index</p>
+            <p className="text-xs text-slate-500 mt-0.5">索引</p>
           </div>
         </div>
       )}

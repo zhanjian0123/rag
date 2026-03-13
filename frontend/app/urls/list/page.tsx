@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import DashboardLayout from "@/components/DashboardLayout";
 import { Card, CardContent } from "@/components/Card";
 
 interface URLItem {
@@ -44,6 +45,7 @@ export default function UrlListPage() {
 
   if (loading) {
     return (
+      <DashboardLayout>
       <div className="max-w-4xl space-y-3">
         {[1, 2, 3].map((i) => (
           <Card key={i} className="animate-pulse">
@@ -54,10 +56,12 @@ export default function UrlListPage() {
           </Card>
         ))}
       </div>
+      </DashboardLayout>
     );
   }
 
   return (
+    <DashboardLayout>
     <div className="max-w-4xl space-y-4">
       {/* Header */}
       <div className="flex items-center justify-between">
@@ -123,5 +127,6 @@ export default function UrlListPage() {
         </div>
       )}
     </div>
+    </DashboardLayout>
   );
 }

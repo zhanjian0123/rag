@@ -59,12 +59,19 @@ a {
   text-decoration: none;
 }
 
-/* 限制 SVG 图标尺寸 - 强制设置 */
-svg:not([class*="w-"]):not([class*="h-"]) {
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  vertical-align: middle;
+/* Emoji 图标样式限制 */
+span:not([class*="text-"]),
+.emoji-icon,
+span:empty + span,
+svg + span {
+  font-size: 1em;
+  line-height: 1;
+}
+
+/* 防止 SVG 图标变大 */
+svg {
+  max-width: 100%;
+  height: auto;
 }
 
 /* ==================== 滚动条 ==================== */
