@@ -81,43 +81,7 @@ web-rag-trae/
 └── requirements.txt
 ```
 
-## 🚀 快速开始
 
-### 环境要求
-
-- Python 3.10+
-- Node.js 18+
-- npm 或 yarn
-
-### 后端安装
-
-```bash
-cd backend
-
-# 创建虚拟环境
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# 安装依赖
-pip install -r requirements.txt
-
-# 启动服务
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-```
-
-### 前端安装
-
-```bash
-cd frontend
-
-# 安装依赖
-npm install
-
-# 启动开发服务器
-npm run dev
-```
-
-## 📖 功能模块
 
 ### 1. 文档管理
 | 功能 | 说明 |
@@ -172,94 +136,6 @@ npm run dev
 | **流式输出** | 打字机效果，实时显示 |
 | **来源引用** | 标注参考来源和页码 |
 | **多轮对话** | 支持上下文多轮问答 |
-
-## ⚙️ 配置
-
-创建 `.env` 文件配置环境变量：
-
-```bash
-# ==================== 应用配置 ====================
-APP_HOST=0.0.0.0
-APP_PORT=8000
-DEBUG=true
-
-# ==================== 数据库配置 ====================
-DATABASE_URL=sqlite+aiosqlite:///./data/db/web_rag.db
-CHROMA_PERSIST_DIRECTORY=./data/chroma
-
-# ==================== LLM 配置 ====================
-# 方案一：通义千问（DashScope）
-DASHSCOPE_API_KEY=your_dashscope_key
-LLM_PROVIDER=dashscope
-LLM_MODEL=qwen-turbo
-EMBEDDING_MODEL=text-embedding-v2
-
-# 方案二：OpenAI
-OPENAI_API_KEY=your_openai_key
-OPENAI_BASE_URL=https://api.openai.com/v1
-LLM_MODEL=gpt-4-turbo
-EMBEDDING_MODEL=text-embedding-3-small
-
-# ==================== 切片配置 ====================
-# 切片策略：sentence | paragraph | semantic | markdown | fixed | hybrid
-CHUNK_STRATEGY=hybrid
-CHUNK_SIZE=500
-CHUNK_OVERLAP=100
-# Markdown 切片是否按标题层级
-MD_CHUNK_BY_HEADER=true
-
-# ==================== 检索配置 ====================
-# 混合检索权重（向量检索权重，BM25 权重 = 1 - 此值）
-VECTOR_WEIGHT=0.7
-BM25_WEIGHT=0.3
-# 检索返回数量
-TOP_K=10
-# 重排序模型（可选）
-RERANK_MODEL=None
-
-# ==================== 查询优化配置 ====================
-# 是否启用查询重写
-ENABLE_QUERY_REWRITE=true
-# 是否启用 HyDE
-ENABLE_HYDE=false
-# 是否启用子查询分解
-ENABLE_QUERY_DECOMPOSE=false
-
-# ==================== 文档解析配置 ====================
-# PDF 解析引擎：pymupdf | pdfplumber
-PDF_PARSER=pymupdf
-# 是否提取 PDF 表格
-EXTRACT_TABLES=false
-# 网页请求超时（秒）
-WEB_TIMEOUT=30
-```
-
-## 🔌 API 接口
-
-### 文档管理
-| 方法 | 端点 | 说明 |
-|------|------|------|
-| POST | `/api/documents/upload` | 上传 PDF/Word 文件 |
-| POST | `/api/documents/url` | 添加网页 URL |
-| GET | `/api/documents` | 获取文档列表 |
-| GET | `/api/documents/{id}` | 获取文档详情 |
-| DELETE | `/api/documents/{id}` | 删除文档 |
-
-### 知识库管理
-| 方法 | 端点 | 说明 |
-|------|------|------|
-| POST | `/api/collections` | 创建知识库集合 |
-| GET | `/api/collections` | 获取集合列表 |
-| POST | `/api/collections/{id}/build` | 构建/更新知识库 |
-| GET | `/api/collections/{id}/stats` | 获取统计信息 |
-
-### 检索与问答
-| 方法 | 端点 | 说明 |
-|------|------|------|
-| POST | `/api/search` | 执行混合检索 |
-| POST | `/api/chat` | 智能问答 |
-| POST | `/api/chat/stream` | 流式问答 |
-| POST | `/api/query/rewrite` | 查询重写 |
 
 
 ## 📊 架构图
